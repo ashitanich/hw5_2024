@@ -34,7 +34,10 @@ header {
     flex-direction: column;
 }
 
-/* Step 5 */
+/* Step 5 visited links are the same color */
+.nav_links a:visited {
+    color: inherit;
+}
 
 /* Step 6 The cards are styled to have rounded borders on the top left and right, while the background color is filled with #45adad. */
 .card {
@@ -81,7 +84,7 @@ header {
 
 
 @media screen and (min-width: 900px) {
-    /* Step 11 */
+    /* Step 11 The logo is styled to the far left and nav links to the far right.*/
     header {
         display: flex;
         flex-flow: nowrap;
@@ -93,7 +96,7 @@ header {
         flex-direction: row;
     }
 
-    /* Step 12 */
+    /* Step 12 The card sizing is modified to 275px and items are aligned in the center. */
 
     .card {
         flex-basis: 275px;
@@ -112,6 +115,7 @@ header {
 }
 
 @media all and (prefers-reduced-motion: reduce) {
+    /* Step 14 Animations are disabled for accessibility*/
     #logo {
         animation: none;
     }
@@ -147,7 +151,7 @@ header {
         display: none;
     }
 
-    /* Step 21 */
+    /* Step 21 Thumps up emoji is added to all three cards */
     .pricing ul li:nth-child(2)::after {
         content: " 👍";
     }
