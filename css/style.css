@@ -1,36 +1,99 @@
-/* Step 2 */
+/* Step 1 The logo is animated with keyframes. The logo's width will expand from 25px to 475px and the opacity will go from 0 to 1. The animation will be 5s long on page load. */
+@keyframes logo {
+    from {
+        width: 25px;
+        opacity: 0;
+    }
+    to {
+        width: 475px;
+        opacity: 1;
+    }
+}
+
+#logo {
+    animation: logo 5s forwards;
+}
+
+/* Step 2 Design uses Poppins google font with a serif font as a backtup. A seamless concrete image is added as the background with a backup color of #f1f1f1*/
 body {
     font-family: "Poppins", serif;
-    background-image: url("concrete_seamless.png");
-    background-color: #f1f1f1; /*Make this backup color?*/
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
 }
-/* Step 7 & 8 */
+
+/* Step 3 Header uses flex to match demo design. */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}z
+
+/* Step 4: The nav_links class uses flex to match demo design*/
+.nav_links {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Step 5 */
+
+/* Step 6 The cards are styled to have rounded borders on the top left and right, while the background color is filled with #45adad. */
+.card {
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.card > header {
+    background-color: #288088;
+    border: solid 2px #45ADAD;
+    padding: 20px 0;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+
+/* Step 7 The card ui is styled to be in a flex column and sized at 450px.*/
 .card {
     display: flex;
     flex-basis: 450px;
+    flex-direction: column;
 }
 
+/* Step 8 The pricing class is centered both vertically and horizontally. */
 .pricing {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
 }
 
-/* Steps 11 - 13 */
+/* Step 9 All images in the gallery class are styled with a solid 10px border of #50C7C7. All images have a 10px on all 4 sides and are set to a width of 300px */
+.gallery img {
+    border: solid 10px #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+/* Step 10 The gallery class is given a flex display with the content centered and items wrapping.*/
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 
 @media screen and (min-width: 900px) {
+    /* Step 11 */
     header {
         display: flex;
         flex-flow: nowrap;
        justify-content: space-between;
-
     }
 
     .nav_links {
+        display: flex;
         flex-direction: row;
     }
 
-    /* Step 12*/
+    /* Step 12 */
 
     .card {
         flex-basis: 275px;
@@ -39,8 +102,54 @@ body {
     .pricing {
         align-items: center;
     }
+
+    /* Step 13 Modifying the header so it is sticky and appears visible at all times when scrolled. */
+    body > header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
 }
 
-@media all and (prefers-reduced-motion: reduce) {}
+@media all and (prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none;
+    }
+}
 
-@media print {}
+@media print {
+    /* Steps 15 & 16 Font family is modified for print view and background image is removed */
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-image: none;
+    }
+
+    /* Step 17 Nav links are centered and spaced apart in print view */
+    .nav_links {
+        display: flex;
+        justify-content: center;
+        gap: 150px;
+    }
+
+    /* Step 18 The cards are all bottom aligned.*/
+    .pricing {
+        align-items: flex-end;
+    }
+
+    /* Step 19 Card border and sizing is redesigned*/
+    .card  {
+        border: solid 2px #45ADDD;
+        flex-basis: 325px;
+    }
+
+    /* Step 20 Gallery and H-tag are hidden in print view*/
+    .gallery, #gallery {
+        display: none;
+    }
+
+    /* Step 21 */
+    .pricing ul li:nth-child(2)::after {
+        content: " 👍";
+    }
+
+}
